@@ -63,12 +63,10 @@ resource "aws_instance" "aws_ec2" {
   key_name        = aws_key_pair.ec2_key_pair.key_name
   security_groups = [aws_security_group.ec2_security_group.name]
 
-  user_data = <<-EOF
-                #!/bin/bash
-                sudo yum update -y
-                sudo yum install httpd -y
-                sudo systemctl start httpd.service
-                sudo systemctl enable httpd.service
-                echo "${file("${path.module}/index.html")}" > /var/www/html/index.html
-                EOF
+
+  user_data = file("${path.module}/install_wordpress.sh")
+
+  tags = {
+    Name = "WordpressInstance"
+  }
 }
