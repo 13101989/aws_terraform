@@ -11,9 +11,9 @@ terraform plan
 terraform apply --auto-approve
 
 # Connect to the machine - get public IP or DNS and get key
-terraform output -raw private_key > ec2-key-name.pem 
-chmod 400 ec2-key-name.pem
+terraform output -raw private_key > ec2_key_name.pem 
+chmod 400 ec2_key_name.pem
 
 # Mandatory provide user - by default uses the session user
-ssh -i ec2-key-name.pem  user@publicIP
+ssh -i ec2_key_name.pem  user@publicIP
 ```
