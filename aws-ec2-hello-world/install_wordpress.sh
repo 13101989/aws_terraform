@@ -7,7 +7,7 @@ sudo systemctl enable httpd
 sudo systemctl start mariadb
 sudo systemctl enable mariadb
 
-# Secure MariaDB installation
+# Secure MariaDB installation (you should customize this part)
 sudo mysql_secure_installation <<EOF
 y
 password
@@ -39,3 +39,4 @@ sudo sed -i 's/password_here/password/' wp-config.php
 # # Adjust permissions
 sudo chown -R apache:apache /var/www/html/
 sudo systemctl restart httpd
+
