@@ -9,7 +9,6 @@ provider "aws" {
 
 resource "aws_s3_bucket" "my_website_bucket" {
   bucket = "my-hello-world-website-unique-name"
-
 }
 
 resource "aws_s3_bucket_website_configuration" "my_website" {
@@ -29,7 +28,6 @@ resource "aws_s3_object" "index_html" {
   key          = "index.html"
   source       = "index.html"
   content_type = "text/html"
-  # Removed acl = "public-read" due to BucketOwnerEnforced settings
 }
 
 resource "aws_s3_object" "error_html" {
@@ -37,7 +35,6 @@ resource "aws_s3_object" "error_html" {
   key          = "error.html"
   source       = "error.html"
   content_type = "text/html"
-  # Removed acl = "public-read" due to BucketOwnerEnforced settings
 }
 
 resource "aws_s3_bucket_public_access_block" "my_website_access_block" {
