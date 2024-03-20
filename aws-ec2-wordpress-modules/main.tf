@@ -17,5 +17,11 @@ module "ec2_instance" {
   instance_type      = var.instance_type
   ami_id             = var.ami_id
   key_name           = module.key_pair.key_name
-  security_group_ids = [module.security_group.sg_id]
+  security_groups    = [module.security_group.security_group_name]
+}
+
+
+output "private_key" {
+  value = module.key_pair.private_key
+  sensitive = true
 }

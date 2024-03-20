@@ -10,6 +10,6 @@ variable "key_name" {
   type = string
 }
 
-variable "security_group_ids" {
+variable "security_groups" {
   type = list(string)
 }
