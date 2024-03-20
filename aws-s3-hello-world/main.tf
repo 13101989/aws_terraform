@@ -9,7 +9,7 @@ provider "aws" {
 
 resource "aws_s3_bucket" "my_website_bucket" {
   bucket = "my-hello-world-website-unique-name"
-  
+
 }
 
 resource "aws_s3_bucket_website_configuration" "my_website" {
