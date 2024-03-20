@@ -1,9 +1,9 @@
 terraform {
   backend "s3" {
-    bucket = "skillab-terraform-state"
-    key            = "terraform.tfstate"
-    region = "eu-central-1"
-    encrypt        = true
+    bucket  = "skillab-terraform-state" # must be defined in AWS
+    key     = "terraform.tfstate"
+    region  = "eu-central-1"
+    encrypt = true
   }
 }
 
@@ -54,10 +54,10 @@ resource "aws_security_group" "hello_world_sg" {
 }
 
 resource "aws_instance" "hello_world" {
-  ami                    = "ami-03cceb19496c25679"
-  instance_type          = "t2.micro"
-  key_name               = aws_key_pair.deployer.key_name
-  security_groups        = [aws_security_group.hello_world_sg.name]
+  ami             = "ami-03cceb19496c25679"
+  instance_type   = "t2.micro"
+  key_name        = aws_key_pair.deployer.key_name
+  security_groups = [aws_security_group.hello_world_sg.name]
 
   user_data = file("${path.module}/install_wordpress.sh")
 
